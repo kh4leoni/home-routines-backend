@@ -33,7 +33,8 @@ taskRouter.put('/:id', async (req, res) => {
   const id = req.params.id
 
 
-  const updatedTask = await Task.findOneAndUpdate(id, {tasks: newTasks}, {new: true});
+
+  const updatedTask = await Task.findOneAndUpdate({ _id: id }, { tasks: newTasks }, { new: true });
   res.json(updatedTask)
 
 })
