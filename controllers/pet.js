@@ -1,5 +1,6 @@
 const petRouter = require('express').Router()
 const Pet = require('../models/pet')
+const moment = require('moment-timezone')
 
 petRouter.get('/', async (req,res) => {
   petData = await Pet.find({})
@@ -17,15 +18,27 @@ petRouter.post('/', async (req, res) => {
 petRouter.put('/:id', async (req, res) => {
   const id = req.params.id
   const { field, value } = req.body
+  console.log(req.body)
 
 
-    const petToUpdate = await Pet.findByIdAndUpdate(
+  const doneTime = moment().tz('Europe/Helsinki')
+
+  const updateObj = {
+    [field]: {
+      done: value,
+      time: doneTime.format()
+    }
+
+  }
+  const petToUpdate = await Pet.findByIdAndUpdate(
     id,
-    { [field]: value },
+    updateObj,
     { new: true }
     )
 
-    res.status(200).json(petToUpdate)
+
+
+  res.status(200).json({ ...petToUpdate.toJSON(), time: doneTime.format() });
 
 
 })

@@ -1,50 +1,65 @@
 const mongoose = require('mongoose')
 
+
 const petSchema = mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
   },
   morningFood: {
-    type: Boolean,
-    default: false,
-    doneTime: {
+    done: {
+      type: Boolean,
+      default: false
+    },
+    time: {
       type: Date,
       default: null
     }
   },
+
   eveningFood: {
-    type: Boolean,
-    default: false,
-    doneTime: {
+    done: {
+      type: Boolean,
+      default: false
+    },
+    time: {
       type: Date,
       default: null
     }
   },
   morningOut: {
-    type: Boolean,
-    default: false,
-    doneTime: {
+    done: {
+      type: Boolean,
+      default: false
+    },
+    time: {
       type: Date,
       default: null
     }
   },
   dayOut: {
-    type: Boolean,
-    default: false,
-    doneTime: {
+    done: {
+      type: Boolean,
+      default: false
+    },
+    time: {
       type: Date,
       default: null
     }
   },
   eveningOut: {
-    type: Boolean,
-    default: false,
-    doneTime: {
+    done: {
+      type: Boolean,
+      default: false
+    },
+    time: {
       type: Date,
       default: null
+    },
+    timeZone: {
+      type: String
     }
-  }
+  },
 })
 
 const Pet = mongoose.model('Pet', petSchema)
