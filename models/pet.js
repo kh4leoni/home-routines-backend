@@ -6,6 +6,20 @@ const petSchema = mongoose.Schema({
     type: Date,
     default: Date.now
   },
+  dentastix: {
+    done: {
+      type: Boolean,
+      default: false
+    },
+    time: {
+      type: Date,
+      default: null
+    },
+    user: {
+      type: String,
+      default: ""
+    }
+  },
   morningFood: {
     done: {
       type: Boolean,
@@ -14,6 +28,10 @@ const petSchema = mongoose.Schema({
     time: {
       type: Date,
       default: null
+    },
+    user: {
+      type: String,
+      default: ""
     }
   },
 
@@ -25,6 +43,10 @@ const petSchema = mongoose.Schema({
     time: {
       type: Date,
       default: null
+    },
+    user: {
+      type: String,
+      default: ""
     }
   },
   morningOut: {
@@ -35,6 +57,10 @@ const petSchema = mongoose.Schema({
     time: {
       type: Date,
       default: null
+    },
+    user: {
+      type: String,
+      default: ""
     }
   },
   dayOut: {
@@ -45,6 +71,10 @@ const petSchema = mongoose.Schema({
     time: {
       type: Date,
       default: null
+    },
+    user: {
+      type: String,
+      default: ""
     }
   },
   eveningOut: {
@@ -58,6 +88,10 @@ const petSchema = mongoose.Schema({
     },
     timeZone: {
       type: String
+    },
+    user: {
+      type: String,
+      default: ""
     }
   },
 })

@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch index.js",
-    "build:ui": "rm -rf build && cd ../home-routines && npm run build && cp -r build ../home-routines-backend"
+    "build:ui": "rm -rf build && cd ../home-routines && npm run build && cp -r build ../home-routines-backend",
+    "start:test": "NODE_ENV=test node --watch index.js"
   },
   "keywords": [],
   "author": "",

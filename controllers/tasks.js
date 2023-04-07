@@ -29,12 +29,17 @@ taskRouter.post('/', async (req, res) => {
 })
 
 taskRouter.put('/:id', async (req, res) => {
-  const newTasks = req.body.tasks
+  const newTasks = req.body
+  console.log(req.body)
   const id = req.params.id
 
 
 
-  const updatedTask = await Task.findOneAndUpdate({ _id: id }, { tasks: newTasks }, { new: true });
+  const updatedTask = await Task.findOneAndUpdate(
+  { _id: id },
+  newTasks,
+  { new: true }
+  )
   res.json(updatedTask)
 
 })

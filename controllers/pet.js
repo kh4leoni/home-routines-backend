@@ -17,8 +17,8 @@ petRouter.post('/', async (req, res) => {
 
 petRouter.put('/:id', async (req, res) => {
   const id = req.params.id
-  const { field, value } = req.body
-  console.log(req.body)
+  const { field, value, currentUserName } = req.body
+  console.log(currentUserName)
 
 
   const doneTime = moment().tz('Europe/Helsinki')
@@ -26,7 +26,8 @@ petRouter.put('/:id', async (req, res) => {
   const updateObj = {
     [field]: {
       done: value,
-      time: doneTime.format()
+      time: doneTime.format(),
+      user: currentUserName
     }
 
   }
